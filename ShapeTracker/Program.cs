@@ -1,7 +1,11 @@
+using System;
+
 class Program
 {
   static void Main()
   {
-    // We'll add user interface code here.
+    Triangle testTriangle = new Triangle();
+    Console.WriteLine(testTriangle.GetType());
   }
 }
+
