@@ -1,29 +1,63 @@
+using System.Collections.Generic;
+
 namespace ShapeTracker.Models 
 {
   public class Triangle 
   {
-    public int Side1;
-    public int Side2;
-    public int Side3;
+    private int _side1;
+    private int _side2;
+    private int _side3;
+    private static List<Triangle> _instances = new List<Triangle> {};
 
     public Triangle(int length1, int length2, int length3) 
     {
-      Side1 = length1;
-      Side2 = length2;
-      Side3 = length3;
+      _side1 = length1;
+      _side2 = length2;
+      _side3 = length3;
+      _instances.Add(this);
+    }
+
+    public int GetSide1()
+    {
+      return _side1;
+    }
+
+    public int GetSide2()
+    {
+      return _side2;
+    }
+
+    public int GetSide3()
+    {
+      return _side3;
+    }
+
+    public void SetSide1(int newSide)
+    {
+      _side1 = newSide;
+    }
+
+    public void SetSide2(int newSide)
+    {
+      _side2 = newSide;
+    }
+
+    public void SetSide3(int newSide)
+    {
+      _side3 = newSide;
     }
 
     public string CheckType() 
     {
-      if ((Side1 > (Side2 + Side3)) || (Side2 > (Side1 + Side3)) || (Side3 > (Side1 + Side2)))
+      if ((_side1 > (_side2 + _side3)) || (_side2 > (_side1 + _side3)) || (_side3 > (_side1 + _side2)))
       {
         return "not a triangle";
       } 
-      else if ((Side1 != Side2) && ((Side1 != Side3)) && ((Side2 != Side3))) 
+      else if ((_side1 != _side2) && ((_side1 != _side3)) && ((_side2 != _side3))) 
       {
         return "scalene triangle";
       }  
-      else if ((Side1 == Side2) && (Side1 == Side3)) 
+      else if ((_side1 == _side2) && (_side1 == _side3)) 
       {
         return "equilateral triangle";
       } 
@@ -31,6 +65,16 @@ namespace ShapeTracker.Models
       {
         return "isosceles triangle";
       }
+    }
+
+    public static List<Triangle> GetAll()
+    {
+      return _instances;
+    }
+
+    public static void ClearAll()
+    {
+      _instances.Clear();
     }
   }
 }
