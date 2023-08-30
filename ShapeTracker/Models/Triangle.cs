@@ -1,13 +1,9 @@
-using System;
-
-namespace ShapeTracker
+namespace ShapeTracker.Models 
 {
-  class Program
+  public class Triangle 
   {
-    static void Main()
-    {
-      ShapeTracker.Models.Triangle testTriangle = new ShapeTracker.Models.Triangle();
-      Console.WriteLine(testTriangle.GetType());
-    }
+    public int Side1;
+    public int Side2 = 4;
+    public int Side3;
   }
 }
