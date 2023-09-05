@@ -71,15 +71,26 @@ namespace ShapeTracker
       {
         Console.WriteLine("Here are all of the triangles you have entered:");
         List<Triangle> allTriangles = Triangle.GetAll();
-        foreach (Triangle triangle in allTriangles)
+        foreach (Triangle instance in allTriangles)
         {
-          Console.WriteLine($"{triangle.Side1}, {triangle.Side2}, {triangle.GetSide3()}");
+          Console.WriteLine($"{instance.Side1}, {instance.Side2}, {instance.GetSide3()}");
         }
-      }
-      else
-      {
-        Console.WriteLine("Goodbye!");
-      }
+        Console.WriteLine("Would you like to clear all of your triangles? Enter 'clear' to clear all of your triangles. To return to the main menu, enter 'main menu'. To exit, enter any key.");
+        string userResponse2 = Console.ReadLine();
+        if (userResponse2 == "clear" || userResponse2 == "Clear")
+        {
+          Triangle.ClearAll();
+          Console.WriteLine("All of your triangles have been cleared.");
+        }
+        else if (userResponse2 == "main menu" || userResponse2 == "Main menu")
+        {
+          Main();
+        }
+        else
+        {
+          Console.WriteLine("Goodbye!");
+        }
+        }
     }
   }
 }
