@@ -9,7 +9,7 @@
 ## Technologies Used
 
 *_.NET_
-*_.
+*_C#_
 
 ## Description
 ####_A website to determine the user's age on other planets, the years passed since their birthdate on other planets, and the difference between a birthday and a future birthday on other planets._
